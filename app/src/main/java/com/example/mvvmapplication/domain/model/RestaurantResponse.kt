@@ -1,18 +1,18 @@
 package com.example.mvvmapplication.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-
-@Serializable
+@Parcelize
 data class RestaurantResponse(
 
     @SerialName("results") var results: List<Results> = mutableListOf<Results>(),
     @SerialName("message") var message: String
 
-)
+) : Parcelable
 
-@Serializable
+@Parcelize
 data class Results(
 
     @SerialName("restaurantId") var restaurantId: Int,
@@ -22,12 +22,12 @@ data class Results(
     @SerialName("website") var website: String,
     @SerialName("phoneNumber") var phoneNumber: String
 
-)
+) : Parcelable
 
-@Serializable
+@Parcelize
 data class Location(
 
     @SerialName("lat") var lat: String,
     @SerialName("lon") var lon: String
 
-)
+) : Parcelable
