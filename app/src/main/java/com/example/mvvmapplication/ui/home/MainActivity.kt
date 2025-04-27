@@ -43,6 +43,7 @@ class MainActivity : ComponentActivity() {
             MVVMApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
+                    viewModel.loadRestaurants()
                     val list = rememberSaveable { mutableStateOf<List<Results>>(mutableListOf()) }
                     val isError = rememberSaveable { mutableStateOf<Boolean>(false) }
                     val state: RequestState = viewModel.state.collectAsStateWithLifecycle().value

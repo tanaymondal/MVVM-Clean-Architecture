@@ -17,7 +17,7 @@ class MyViewModel @Inject constructor(private val useCase: GetRestaurantUseCase)
     )
     val state = _state.asStateFlow()
 
-    init {
+    fun loadRestaurants() {
         viewModelScope.launch {
             _state.emit(useCase.getRestaurant())
         }
